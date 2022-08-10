@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AopRoutingModule, AopNavigationService } from 'aop-routing';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AopRoutingModule
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AopRoutingModule.forRoot({expirementNav: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule { 
+  constructor(private aopNavigationService: AopNavigationService) {}
+}
